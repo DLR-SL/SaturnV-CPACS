@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Saturn V — CPACS Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #1a2029;
+        --panel-bg: rgba(20, 25, 32, 0.86);
+        --border: rgba(255, 255, 255, 0.09);
+        --text: #e6e9ee;
+        --text-dim: #8b95a3;
+        --accent: #5b9dd9;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body, #app {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: var(--bg);
+        font-family: 'Inter', system-ui, sans-serif;
+        color: var(--text);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .title {
+        position: absolute;
+        top: 22px;
+        left: 26px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .title h1 { margin: 0; font-size: 19px; font-weight: 600; }
+
+      .title p {
+        margin: 3px 0 0;
+        font-size: 12px;
+        color: var(--text-dim);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      #panel-toggle,
+      #spin-toggle {
+        position: absolute;
+        top: 22px;
+        z-index: 12;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--panel-bg);
+        backdrop-filter: blur(14px);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--text);
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+      }
+
+      #panel-toggle {
+        right: 22px;
+        gap: 4px;
+        flex-direction: column;
+      }
+
+      #spin-toggle {
+        right: 70px;
+        padding: 0;
+      }
+
+      #panel-toggle:hover,
+      #spin-toggle:hover { background: rgba(35, 43, 54, 0.9); }
+
+      #spin-toggle svg { display: block; width: 18px; height: 18px; }
+
+      #spin-toggle[aria-pressed='true'] {
+        color: var(--accent);
+        border-color: rgba(91, 157, 217, 0.45);
+      }
+
+      /* The icon turns while the spin is running, so the button reports its own
+         state without needing a label. */
+      #spin-toggle[aria-pressed='true'] svg {
+        animation: spin-icon 3.2s linear infinite;
+      }
+
+      @keyframes spin-icon {
+        to { transform: rotate(360deg); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #spin-toggle[aria-pressed='true'] svg { animation: none; }
+      }
+
+      #panel-toggle span {
+        display: block;
+        width: 16px;
+        height: 1.5px;
+        background: var(--text);
+        border-radius: 1px;
+        transition: transform 0.25s, opacity 0.2s;
+      }
+
+      body:not(.panel-collapsed) #panel-toggle span:nth-child(1) {
+        transform: translateY(5.5px) rotate(45deg);
+      }
+      body:not(.panel-collapsed) #panel-toggle span:nth-child(2) { opacity: 0; }
+      body:not(.panel-collapsed) #panel-toggle span:nth-child(3) {
+        transform: translateY(-5.5px) rotate(-45deg);
+      }
+
+      #ui {
+        position: absolute;
+        top: 74px;
+        right: 22px;
+        z-index: 10;
+        width: 252px;
+        max-height: calc(100vh - 96px);
+        overflow-y: auto;
+        padding: 16px;
+        background: var(--panel-bg);
+        backdrop-filter: blur(14px);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        font-size: 13px;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+      }
+
+      /* Kept in the DOM while collapsed: main.js reads #panel and the slider
+         during startup. */
+      body.panel-collapsed #ui {
+        opacity: 0;
+        transform: translateX(16px);
+        pointer-events: none;
+      }
+
+      #ui::-webkit-scrollbar { width: 8px; }
+      #ui::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.14);
+        border-radius: 4px;
+      }
+
+      .slider-row { margin-bottom: 14px; }
+
+      .slider-row label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-dim);
+        margin-bottom: 6px;
+      }
+
+      .slider-row input[type=range] {
+        width: 100%;
+        accent-color: var(--accent);
+      }
+
+      .divider {
+        height: 1px;
+        background: var(--border);
+        margin: 14px -16px;
+      }
+
+      .group { margin-bottom: 14px; }
+
+      .group-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+
+      .group-heading .name {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* Own row below the heading: sharing the row with the label truncated
+         the category names ("wing" -> "WIN..."). */
+      .group-opacity {
+        display: block;
+        width: 100%;
+        height: 14px;
+        margin: 0 0 6px;
+        accent-color: var(--accent);
+        cursor: pointer;
+      }
+
+      .toggle-all {
+        flex: 0 0 auto;
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        color: var(--text-dim);
+        font-size: 10px;
+        font-family: inherit;
+        padding: 1px 7px;
+        cursor: pointer;
+        transition: all 0.15s;
+      }
+
+      .toggle-all:hover {
+        color: var(--text);
+        border-color: rgba(255,255,255,0.25);
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 3px 4px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.12s;
+      }
+
+      .row:hover { background: rgba(255,255,255,0.06); }
+
+      .row input[type=checkbox] {
+        accent-color: var(--accent);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .swatch {
+        width: 9px;
+        height: 9px;
+        border-radius: 2px;
+        flex-shrink: 0;
+        border: 1px solid rgba(0,0,0,0.35);
+      }
+
+      .row .label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12.5px;
+      }
+
+      #loading {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20;
+        background: var(--bg);
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+
+      /* Phones: the panel becomes a bottom sheet, thumb-reachable and without
+         covering the launcher sideways. */
+      @media (max-width: 720px) {
+        .title { top: 16px; left: 16px; }
+        .title h1 { font-size: 16px; }
+        .title p { font-size: 10px; }
+
+        #panel-toggle,
+        #spin-toggle {
+          top: 14px;
+          width: 44px;
+          height: 44px;
+        }
+
+        #panel-toggle { right: 14px; }
+        #spin-toggle { right: 66px; }
+
+        #ui {
+          top: auto;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          width: 100%;
+          max-height: 58vh;
+          border-radius: 14px 14px 0 0;
+          border-bottom: none;
+          padding-bottom: calc(16px + env(safe-area-inset-bottom));
+        }
+
+        body.panel-collapsed #ui {
+          transform: translateY(100%);
+        }
+
+        .row { padding: 7px 4px; }
+        .row input[type=checkbox] { width: 17px; height: 17px; }
+        .row .label { font-size: 14px; }
+        .slider-row input[type=range] { height: 26px; }
+        .group-opacity { height: 24px; }
+        .toggle-all { padding: 4px 10px; font-size: 11px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <h1>Saturn V</h1>
+      <p>CPACS · TiGL</p>
+    </div>
+
+    <button id="spin-toggle" type="button" aria-label="Toggle slow rotation" aria-pressed="false" title="Slow rotation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+        <polyline points="21 3 21 9 15 9" />
+      </svg>
+    </button>
+
+    <button id="panel-toggle" aria-label="Toggle component list" aria-expanded="true">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div id="ui">
+      <div class="slider-row">
+        <label for="explode-slider">Exploded view</label>
+        <input id="explode-slider" type="range" min="0" max="100" value="0" />
+      </div>
+      <div class="divider"></div>
+      <div id="panel"></div>
+    </div>
+
+    <div id="loading">Loading model …</div>
+
+    <div id="app"></div>
+
+    <script>
+      const toggleBtn = document.getElementById('panel-toggle')
+      if (window.matchMedia('(max-width: 720px)').matches) {
+        document.body.classList.add('panel-collapsed')
+        toggleBtn.setAttribute('aria-expanded', 'false')
+      }
+      toggleBtn.addEventListener('click', () => {
+        const collapsed = document.body.classList.toggle('panel-collapsed')
+        toggleBtn.setAttribute('aria-expanded', String(!collapsed))
+      })
+    </script>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

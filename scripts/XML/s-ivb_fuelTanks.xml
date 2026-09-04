@@ -1,0 +1,702 @@
+                    <fuelTank uID="s-ivb_lh2">
+                            <name>S-IVB LH2 Fuel Tank</name>
+                            <description>Propellant tank of the S-IVB third stage storing liquid hydrogen as fuel.
+                            Modelled as the complete welded propellant tank: barrel from STA 2832.00 to 3100.56, closed by two outward convex ellipsoidal domes of 122 in depth, apexes at STA 2710.00 and 3222.56 [8].
+                            The forward apex coincides with the forward skirt / Instrument Unit interface at STA 3222.56; the dome fills the forward skirt exactly.
+                            s-ivb_oxidizer is nested inside this envelope and shares its aft dome, so this vessel encloses 13249 cu ft rather than the 10418 cu ft of the LH2 compartment [5]; the compartment is the difference between the two.</description>
+                            <parentUID>s-ivb_aftInterstageAssembly</parentUID>
+                            <transformation>
+                                <rotation>
+                                    <y>-90.0</y>
+                                </rotation>
+                                <translation>
+                                    <z>4.851400</z>
+                                </translation>
+                            </transformation>
+                            <vessels>
+                                <vessel uID="s-ivb_lh2_vessel">
+                                    <name>S-IVB LH2 Tank Vessel</name>
+                                    <description>Pressure vessel representing the welded propellant tank of the S-IVB stage. It is the outer envelope; s-ivb_lox_vessel sits inside it.</description>
+                                    <transformation />
+                                    <cylinderRadius>3.302000</cylinderRadius>
+                                    <cylinderLength>6.821424</cylinderLength>
+                                    <domeType>
+                                        <ellipsoid>
+                                            <halfAxisFraction>0.9385</halfAxisFraction>
+                                        </ellipsoid>
+                                    </domeType>
+                                </vessel>
+                            </vessels>
+                        </fuelTank>
+                    <fuelTank uID="s-ivb_oxidizer">
+                            <name>S-IVB LOX Oxidizer Tank</name>
+                            <description>Propellant tank of the S-IVB third stage storing liquid oxygen as oxidizer.
+                            Lens formed by the aft dome of the surrounding tank and the common bulkhead, welded together at one attach ring at STA 2779.63 and inserted into the barrel as a closed unit [8, Fig. 28].
+                            The ring lies on the aft dome, so its radius 117.41 in follows from its station; the station itself is solved from the documented 2830 cu ft [5]. The bulkhead is convex forward, of the same 0.9385 proportion, with its apex at STA 2889.82.
+                            The two closures meet at a kink -- the aft dome arrives at 64.58 deg meridian angle, the bulkhead leaves at 90 deg -- so the vessel is described by sections and segments; no domeType can express two dissimilar closures.</description>
+                            <parentUID>s-ivb_aftInterstageAssembly</parentUID>
+                            <transformation>
+                                <rotation>
+                                    <y>-90.0</y>
+                                </rotation>
+                                <translation>
+                                    <z>4.851400</z>
+                                </translation>
+                            </transformation>
+                            <vessels>
+                                <vessel uID="s-ivb_lox_vessel">
+                                    <name>S-IVB LOX Tank Vessel</name>
+                                    <description>Pressure vessel representing the liquid-oxygen tank volume of the S-IVB stage. Its aft closure is geometrically identical to the aft dome of s-ivb_lh2_vessel, which it shares as a physical part.</description>
+                                    <transformation />
+                                    <sections>
+                                        <section uID="s-ivb_lox_vessel_sec1">
+                                            <name>S-IVB LOX Tank Vessel Section 1</name>
+                                            <description>Aft dome apex. STA 2710.00.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.000000</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec1_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 1 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>0.000020</y>
+                                                            <z>0.000020</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec2">
+                                            <name>S-IVB LOX Tank Vessel Section 2</name>
+                                            <description>Aft dome at 5.38 deg meridian angle. STA 2710.54.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.013659</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec2_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 2 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>0.619380</y>
+                                                            <z>0.619380</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec3">
+                                            <name>S-IVB LOX Tank Vessel Section 3</name>
+                                            <description>Aft dome at 10.76 deg meridian angle. STA 2712.15.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.054516</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec3_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 3 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>1.233300</y>
+                                                            <z>1.233300</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec4">
+                                            <name>S-IVB LOX Tank Vessel Section 4</name>
+                                            <description>Aft dome at 16.14 deg meridian angle. STA 2714.81.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.122211</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec4_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 4 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>1.836348</y>
+                                                            <z>1.836348</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec5">
+                                            <name>S-IVB LOX Tank Vessel Section 5</name>
+                                            <description>Aft dome at 21.53 deg meridian angle. STA 2718.51.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.216146</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec5_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 5 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>2.423207</y>
+                                                            <z>2.423207</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec6">
+                                            <name>S-IVB LOX Tank Vessel Section 6</name>
+                                            <description>Aft dome at 26.91 deg meridian angle. STA 2723.21.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.335494</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec6_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 6 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>2.988703</y>
+                                                            <z>2.988703</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec7">
+                                            <name>S-IVB LOX Tank Vessel Section 7</name>
+                                            <description>Aft dome at 32.29 deg meridian angle. STA 2728.87.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.479203</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec7_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 7 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>3.527852</y>
+                                                            <z>3.527852</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec8">
+                                            <name>S-IVB LOX Tank Vessel Section 8</name>
+                                            <description>Aft dome at 37.67 deg meridian angle. STA 2735.43.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.646005</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec8_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 8 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>4.035900</y>
+                                                            <z>4.035900</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec9">
+                                            <name>S-IVB LOX Tank Vessel Section 9</name>
+                                            <description>Aft dome at 43.05 deg meridian angle. STA 2742.85.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>0.834431</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec9_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 9 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>4.508369</y>
+                                                            <z>4.508369</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec10">
+                                            <name>S-IVB LOX Tank Vessel Section 10</name>
+                                            <description>Aft dome at 48.43 deg meridian angle. STA 2751.06.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>1.042819</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec10_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 10 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>4.941093</y>
+                                                            <z>4.941093</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec11">
+                                            <name>S-IVB LOX Tank Vessel Section 11</name>
+                                            <description>Aft dome at 53.82 deg meridian angle. STA 2759.97.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>1.269331</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec11_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 11 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.330258</y>
+                                                            <z>5.330258</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec12">
+                                            <name>S-IVB LOX Tank Vessel Section 12</name>
+                                            <description>Aft dome at 59.20 deg meridian angle. STA 2769.53.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>1.511972</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec12_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 12 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.672432</y>
+                                                            <z>5.672432</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec13">
+                                            <name>S-IVB LOX Tank Vessel Section 13</name>
+                                            <description>Attach ring: common bulkhead welded to the aft dome; meridian kink. STA 2779.63.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>1.768602</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec13_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 13 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.964600</y>
+                                                            <z>5.964600</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec14">
+                                            <name>S-IVB LOX Tank Vessel Section 14</name>
+                                            <description>Common bulkhead at 82.50 deg meridian angle. STA 2794.01.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>2.133915</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec14_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 14 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.913572</y>
+                                                            <z>5.913572</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec15">
+                                            <name>S-IVB LOX Tank Vessel Section 15</name>
+                                            <description>Common bulkhead at 75.00 deg meridian angle. STA 2808.15.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>2.492978</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec15_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 15 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.761361</y>
+                                                            <z>5.761361</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec16">
+                                            <name>S-IVB LOX Tank Vessel Section 16</name>
+                                            <description>Common bulkhead at 67.50 deg meridian angle. STA 2821.80.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>2.839646</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec16_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 16 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.510572</y>
+                                                            <z>5.510572</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec17">
+                                            <name>S-IVB LOX Tank Vessel Section 17</name>
+                                            <description>Common bulkhead at 60.00 deg meridian angle. STA 2834.72.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>3.167989</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec17_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 17 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>5.165495</y>
+                                                            <z>5.165495</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec18">
+                                            <name>S-IVB LOX Tank Vessel Section 18</name>
+                                            <description>Common bulkhead at 52.50 deg meridian angle. STA 2846.71.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>3.472388</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec18_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 18 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>4.732035</y>
+                                                            <z>4.732035</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec19">
+                                            <name>S-IVB LOX Tank Vessel Section 19</name>
+                                            <description>Common bulkhead at 45.00 deg meridian angle. STA 2857.54.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>3.747634</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec19_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 19 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>4.217609</y>
+                                                            <z>4.217609</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec20">
+                                            <name>S-IVB LOX Tank Vessel Section 20</name>
+                                            <description>Common bulkhead at 37.50 deg meridian angle. STA 2867.05.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>3.989019</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec20_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 20 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>3.631018</y>
+                                                            <z>3.631018</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec21">
+                                            <name>S-IVB LOX Tank Vessel Section 21</name>
+                                            <description>Common bulkhead at 30.00 deg meridian angle. STA 2875.06.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>4.192411</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec21_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 21 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>2.982300</y>
+                                                            <z>2.982300</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec22">
+                                            <name>S-IVB LOX Tank Vessel Section 22</name>
+                                            <description>Common bulkhead at 22.50 deg meridian angle. STA 2881.43.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>4.354332</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec22_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 22 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>2.282554</y>
+                                                            <z>2.282554</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec23">
+                                            <name>S-IVB LOX Tank Vessel Section 23</name>
+                                            <description>Common bulkhead at 15.00 deg meridian angle. STA 2886.06.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>4.472010</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec23_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 23 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>1.543752</y>
+                                                            <z>1.543752</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec24">
+                                            <name>S-IVB LOX Tank Vessel Section 24</name>
+                                            <description>Common bulkhead at 7.50 deg meridian angle. STA 2888.88.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>4.543432</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec24_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 24 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>0.778537</y>
+                                                            <z>0.778537</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                        <section uID="s-ivb_lox_vessel_sec25">
+                                            <name>S-IVB LOX Tank Vessel Section 25</name>
+                                            <description>Common bulkhead apex. STA 2889.82.</description>
+                                            <transformation>
+                                                <translation>
+                                                    <x>4.567376</x>
+                                                </translation>
+                                            </transformation>
+                                            <elements>
+                                                <element uID="s-ivb_lox_vessel_sec25_el1">
+                                                    <name>S-IVB LOX Tank Vessel Section 25 Profile</name>
+                                                    <profileUID>circularProfile</profileUID>
+                                                    <transformation>
+                                                        <scaling>
+                                                            <y>0.000020</y>
+                                                            <z>0.000020</z>
+                                                        </scaling>
+                                                    </transformation>
+                                                </element>
+                                            </elements>
+                                        </section>
+                                    </sections>
+                                    <segments>
+                                        <segment uID="s-ivb_lox_vessel_seg1">
+                                            <name>S-IVB LOX Tank Vessel Segment 1</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec1_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec2_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg2">
+                                            <name>S-IVB LOX Tank Vessel Segment 2</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec2_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec3_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg3">
+                                            <name>S-IVB LOX Tank Vessel Segment 3</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec3_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec4_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg4">
+                                            <name>S-IVB LOX Tank Vessel Segment 4</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec4_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec5_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg5">
+                                            <name>S-IVB LOX Tank Vessel Segment 5</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec5_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec6_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg6">
+                                            <name>S-IVB LOX Tank Vessel Segment 6</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec6_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec7_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg7">
+                                            <name>S-IVB LOX Tank Vessel Segment 7</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec7_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec8_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg8">
+                                            <name>S-IVB LOX Tank Vessel Segment 8</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec8_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec9_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg9">
+                                            <name>S-IVB LOX Tank Vessel Segment 9</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec9_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec10_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg10">
+                                            <name>S-IVB LOX Tank Vessel Segment 10</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec10_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec11_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg11">
+                                            <name>S-IVB LOX Tank Vessel Segment 11</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec11_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec12_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg12">
+                                            <name>S-IVB LOX Tank Vessel Segment 12</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec12_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec13_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg13">
+                                            <name>S-IVB LOX Tank Vessel Segment 13</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec13_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec14_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg14">
+                                            <name>S-IVB LOX Tank Vessel Segment 14</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec14_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec15_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg15">
+                                            <name>S-IVB LOX Tank Vessel Segment 15</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec15_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec16_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg16">
+                                            <name>S-IVB LOX Tank Vessel Segment 16</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec16_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec17_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg17">
+                                            <name>S-IVB LOX Tank Vessel Segment 17</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec17_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec18_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg18">
+                                            <name>S-IVB LOX Tank Vessel Segment 18</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec18_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec19_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg19">
+                                            <name>S-IVB LOX Tank Vessel Segment 19</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec19_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec20_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg20">
+                                            <name>S-IVB LOX Tank Vessel Segment 20</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec20_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec21_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg21">
+                                            <name>S-IVB LOX Tank Vessel Segment 21</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec21_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec22_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg22">
+                                            <name>S-IVB LOX Tank Vessel Segment 22</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec22_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec23_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg23">
+                                            <name>S-IVB LOX Tank Vessel Segment 23</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec23_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec24_el1</toElementUID>
+                                        </segment>
+                                        <segment uID="s-ivb_lox_vessel_seg24">
+                                            <name>S-IVB LOX Tank Vessel Segment 24</name>
+                                            <fromElementUID>s-ivb_lox_vessel_sec24_el1</fromElementUID>
+                                            <toElementUID>s-ivb_lox_vessel_sec25_el1</toElementUID>
+                                        </segment>
+                                    </segments>
+                                </vessel>
+                            </vessels>
+                        </fuelTank>

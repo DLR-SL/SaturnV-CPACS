@@ -1,0 +1,139 @@
+# Builds the Saturn V geometry with TiGL, bundles the Three.js viewer and
+# publishes the result to GitHub Pages.
+#
+# Ported from the former GitLab CI pipeline. Three things changed with the move:
+#
+#   1. No `image:` per job. GitHub-hosted runners are Ubuntu VMs, so TiGL is
+#      built on the runner itself and the job steps use sudo instead of running
+#      as root.
+#   2. The TiGL build is cached. GitLab had no cache backend available, so the
+#      cache block there was commented out and TiGL was rebuilt from source on
+#      every run. Here the cache is keyed on the upstream TiGL commit.
+#   3. No pre-compression. GitLab Pages only serves a compressed response if a
+#      <file>.br or <file>.gz sits next to the original; GitHub Pages does not
+#      do that sidecar negotiation at all and compresses on the fly instead, so
+#      the gzip/brotli step was dropped. See README ("Deployment notes").
+
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Required by actions/deploy-pages: `pages` to publish, `id-token` for the
+# OIDC token the deployment is verified with.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deployment finish rather than cancelling it half-way.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  export-models:
+    name: Export STL models
+    runs-on: ubuntu-24.04
+    env:
+      # Pin to a TiGL branch or tag. The fuel/system geometry uses the <tori>
+      # element (DLR-SC/tigl#1424); switch this if you need a feature branch.
+      TIGL_REF: main
+      TIGL_DIR: /home/runner/tigl
+      # Tessellation accuracy. TiGL's default 0.001 yields ~1,070,000 triangles.
+      # Larger values give smaller files and less VRAM in the browser.
+      TIGL_DEFLECTION: "0.001"
+    steps:
+      - uses: actions/checkout@v4
+
+      # The cache key has to change whenever upstream TiGL moves, otherwise a
+      # stale build would be restored forever. Resolving the branch to a commit
+      # SHA gives exactly that.
+      - name: Resolve TiGL revision
+        id: tigl
+        run: |
+          sha=$(git ls-remote https://github.com/DLR-SC/tigl.git "$TIGL_REF" | cut -f1)
+          test -n "$sha" || { echo "Could not resolve TIGL_REF=$TIGL_REF"; exit 1; }
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+      # Covers the pixi launcher, the conda environment (OCCT, pythonocc) and
+      # the compiled TiGL in build/install. A cold build takes ~15-20 min, a
+      # restore a couple of minutes. Drop this step to always build from source.
+      - name: Restore TiGL build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.pixi
+            /home/runner/tigl
+          key: tigl-${{ runner.os }}-${{ steps.tigl.outputs.sha }}
+
+      # Idempotent: skips clone and build when the cache already provided them.
+      - name: Build TiGL
+        run: bash scripts/build_tigl.sh
+
+      # Run through `pixi run` so pixi activates the environment (PATH and
+      # LD_LIBRARY_PATH for the compiled OCCT/TiGL libraries) for us.
+      - name: Export models
+        run: |
+          export PATH="$HOME/.pixi/bin:$PATH"
+          cd "$TIGL_DIR"
+          pixi run -e python-internal python3 "$GITHUB_WORKSPACE/scripts/export_models.py"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: models
+          path: web/public/models/
+          retention-days: 1
+          if-no-files-found: error
+
+  build-web:
+    name: Build viewer
+    runs-on: ubuntu-24.04
+    needs: export-models
+    steps:
+      - uses: actions/checkout@v4
+
+      # Resolves the Pages base path for us, including the custom-domain and
+      # user/org-site cases, and hands it to Vite below.
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Vite copies web/public/ verbatim into dist/, so the models have to be
+      # in place before the build runs.
+      - uses: actions/download-artifact@v4
+        with:
+          name: models
+          path: web/public/models
+
+      - name: Build
+        working-directory: web
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          npm ci
+          npm run build
+          du -sh dist
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    name: Deploy to Pages
+    runs-on: ubuntu-24.04
+    needs: build-web
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
