@@ -13,6 +13,7 @@ separation planes, described entirely in the same schema — and, because TiGL
 reads that schema, turned into watertight CAD geometry without a single line of
 modelling code.
 
+<img width="447" height="367" alt="saturnV" src="https://github.com/user-attachments/assets/0b16b022-ffa8-4778-8365-8c7b4d4f2603" />
 
 ## Background
 
