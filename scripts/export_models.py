@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export every Saturn V component from saturnV.xml to a binary STL file.
+"""Export every Saturn V component from cpacs/saturnV.xml to a binary STL file.
 
 Component UIDs are discovered by parsing the CPACS file with XPath rather than
 through TiGL's UID manager, which keeps the script independent of changes to
@@ -36,7 +36,7 @@ from tigl3 import configuration
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
-CPACS_FILE = REPO_ROOT / "saturnV.xml"
+CPACS_FILE = REPO_ROOT / "cpacs" / "saturnV.xml"
 OUTPUT_DIR = REPO_ROOT / "web" / "public" / "models"
 CONFIG_UID = "saturnV"
 

@@ -8,7 +8,7 @@ The project explores how a complex historical launch vehicle can be represented 
 
 Explore the current model in the interactive web preview:
 
-**[CPACS Saturn V – Interactive Preview](https://OWNER.github.io/REPO/)**
+**[CPACS Saturn V – Interactive Preview](https://dlr-sl.github.io/SaturnV-CPACS/)**
 
 ## Model
 
@@ -44,6 +44,15 @@ The model is being developed incrementally, with the goal of increasing both the
 * [x] Fix launcher position to match the official stations
 
 (⚠️: relevant for DLRK paper)
+
+## Repository layout
+
+| Path | Contents |
+| --- | --- |
+| `cpacs/` | The CPACS model itself — `saturnV.xml` is the single source of truth for the geometry. |
+| `scripts/` | Tooling: `export_models.py` (CPACS → STL via TiGL), `build_tigl.sh` (CI build of TiGL), `render_saturnv.py` / `render.bat` (Blender stills), `TiGL/` (TiGLCreator scripts), `XML/` (generators for tank geometry). |
+| `web/` | Three.js viewer, bundled with Vite and deployed to GitHub Pages. |
+| `.github/workflows/` | The build and deployment pipeline. |
 
 ## Build and deployment
 
@@ -108,7 +117,7 @@ first deployment:
 
 ```bash
 curl -s -o /dev/null -D - -H 'Accept-Encoding: br, gzip' \
-  https://OWNER.github.io/REPO/models/s-ii_lh2.stl | grep -i content-encoding
+  https://dlr-sl.github.io/SaturnV-CPACS/models/s-ii_lh2.stl | grep -i content-encoding
 ```
 
 If nothing comes back, the STLs are served uncompressed — roughly 53 MB instead

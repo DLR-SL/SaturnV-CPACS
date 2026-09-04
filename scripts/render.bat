@@ -38,10 +38,10 @@ rem --- Ableitungen ----------------------------------------------------------
 rem %~dp0 ist der Ordner dieser Datei; das Repository liegt eine Ebene darueber,
 rem falls sie unter scripts\ abgelegt wird. Beides wird geprueft.
 set "REPO=%~dp0"
-if exist "%REPO%saturnV.xml" goto :repo_ok
+if exist "%REPO%cpacs\saturnV.xml" goto :repo_ok
 set "REPO=%~dp0..\"
-if exist "%REPO%saturnV.xml" goto :repo_ok
-echo FEHLER: saturnV.xml weder in "%~dp0" noch eine Ebene darueber gefunden.
+if exist "%REPO%cpacs\saturnV.xml" goto :repo_ok
+echo FEHLER: cpacs\saturnV.xml weder in "%~dp0" noch eine Ebene darueber gefunden.
 exit /b 1
 :repo_ok
 for %%I in ("%REPO%") do set "REPO=%%~fI"

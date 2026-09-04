@@ -9,7 +9,7 @@
 // NACELLE/EXTERNAL_OBJECT. Tanks (TIGL_COMPONENT_TANK) and genericSystems are
 // not included and have to be drawn separately.
 
-var CPACS_FILE = "saturnV.xml";
+var CPACS_FILE = "cpacs/saturnV.xml";
 
 var SHOW_STRUCTURE = true;
 var SHOW_TANKS     = true;
