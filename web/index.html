@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Saturn V — CPACS Viewer</title>
+    <meta
+      name="description"
+      content="Saturn V — NASA’s Apollo Moon launcher, 1967–1973. Interactive viewer for the civil launch vehicle described in CPACS and rendered with TiGL."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -40,11 +44,21 @@
 
       .title h1 { margin: 0; font-size: 19px; font-weight: 600; }
 
-      .title p {
-        margin: 3px 0 0;
-        font-size: 12px;
+      /* Label as used on the CPACS website: vehicle name, then the historical
+         one-liner that identifies this as a civil NASA launcher. */
+      .title .subtitle {
+        margin: 4px 0 0;
+        font-size: 12.5px;
+        color: var(--text);
+        opacity: 0.72;
+        max-width: 34ch;
+      }
+
+      .title .meta {
+        margin: 6px 0 0;
+        font-size: 11px;
         color: var(--text-dim);
-        letter-spacing: 0.04em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
       }
 
@@ -273,7 +287,8 @@
       @media (max-width: 720px) {
         .title { top: 16px; left: 16px; }
         .title h1 { font-size: 16px; }
-        .title p { font-size: 10px; }
+        .title .subtitle { font-size: 11px; max-width: 24ch; margin-top: 3px; }
+        .title .meta { font-size: 9.5px; margin-top: 4px; }
 
         #panel-toggle,
         #spin-toggle {
@@ -313,7 +328,8 @@
   <body>
     <div class="title">
       <h1>Saturn V</h1>
-      <p>CPACS · TiGL</p>
+      <p class="subtitle">NASA’s Apollo Moon launcher, 1967–1973</p>
+      <p class="meta">CPACS · TiGL</p>
     </div>
 
     <button id="spin-toggle" type="button" aria-label="Toggle slow rotation" aria-pressed="false" title="Slow rotation">

@@ -55,7 +55,11 @@
          ===================================================================== -->
     <header>
         <name>Saturn V</name>
-        <description>CPACS model of the Saturn V</description>
+        <description>Saturn V — NASA's Apollo Moon launcher, 1967–1973. CPACS model of the
+            three-stage civil launch vehicle flown by NASA on the Apollo and Skylab
+            missions. Built entirely from published, unrestricted documentation (see the
+            source list in the file header) as a demonstration dataset for the CPACS
+            systems, fuelTanks and decks definitions.</description>
         <version>1.0.0</version>
         <versionInfos>
             <versionInfo version="1.0.0">
@@ -70,6 +74,9 @@
         <aircraft>
             <model uID="saturnV">
                 <name>Saturn V</name>
+                <description>NASA's Apollo Moon launcher, 1967–1973. Civil three-stage
+                    expendable launch vehicle (S-IC / S-II / S-IVB) with Apollo spacecraft
+                    and launch escape system.</description>
                 <ducts>
                     <duct uID="s-ic_loxTunnel_f1_1">
                         <name>S-IC LOX Tunnel f1_1</name>
