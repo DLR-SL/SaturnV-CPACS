@@ -1,4 +1,4 @@
-# Saturn V — CPACS Dataset
+# Saturn V: CPACS Dataset
 
 **SATURN V** — NASA’s Apollo Moon launcher, 1967–1973
 
@@ -11,9 +11,7 @@ A parametric digital model of the **Saturn V launch vehicle**, expressed in
 
 CPACS was designed for aircraft. This dataset asks how far it carries beyond
 that: a 110 m multi-stage launch vehicle with cryogenic tanks, feed systems and
-separation planes, described entirely in the same schema — and, because TiGL
-reads that schema, turned into watertight CAD geometry without a single line of
-modelling code.
+separation planes, described entirely via [CPACS](https://cpacs.de/), and turned into CAD geometry via [TiGL](https://github.com/DLR-SC/tigl).
 
 <img width="447" height="367" alt="saturnV" src="https://github.com/user-attachments/assets/0b16b022-ffa8-4778-8365-8c7b4d4f2603" />
 
@@ -23,18 +21,18 @@ modelling code.
 schema developed at [DLR](https://www.dlr.de/) for describing air and space
 vehicles. Its purpose is to act as a *lingua franca* in multidisciplinary
 design: aerodynamics, structures, propulsion and mission analysis tools all read
-and write the same file, instead of each keeping a private geometry format. The
-description is parametric and hierarchical — a fuselage is a chain of profiles,
-positionings and transformations, not a triangle soup.
+and write the same file. The
+description is parametric and hierarchical: a fuselage is a chain of profiles,
+positionings and transformations.
 
 **TiGL** (TiGL Geometry Library) is the geometry kernel that goes with it.
 Built on [OpenCASCADE](https://www.opencascade.com/), it turns the abstract
-CPACS description into real B-rep geometry: lofted surfaces, boolean cutouts,
+CPACS description into a B-rep geometry: lofted surfaces, boolean cutouts,
 intersections. It ships C++, Python, MATLAB and Java bindings, plus
 **TiGLCreator**, a desktop viewer for inspecting a CPACS file interactively.
 
 This repository contains the CPACS file, the tooling to build geometry from it,
-and a web viewer — no proprietary CAD required at any step.
+and a web viewer.
 
 ## What you can do with it
 
@@ -126,17 +124,6 @@ and torus geometry) are not yet modelled.
 
 Issues and pull requests are welcome — particularly corrections backed by
 primary sources.
-
-
-## Citing
-
-If this dataset supports published work, please cite the repository. The
-geometry kernel it depends on has its own reference:
-
-> Siggel, M., Kleinert, J., Stollenwerk, T. et al.: *TiGL: An Open Source
-> Computational Geometry Library for Parametric Aircraft Design.*
-> Math.Comput.Sci. (2019).
-> [doi:10.1007/s11786-019-00401-y](https://doi.org/10.1007/s11786-019-00401-y)
 
 
 ## License
