@@ -160,6 +160,16 @@ def convert_stl_to_binary(path: Path) -> tuple[int, int, int]:
     return count, size_before, path.stat().st_size
 
 
+def has_faces(loft) -> bool:
+    """True if the loft carries at least one face (empty systems yield an empty compound)."""
+    from OCC.Core.TopAbs import TopAbs_FACE
+    from OCC.Core.TopExp import TopExp_Explorer
+
+    if loft is None or loft.shape().IsNull():
+        return False
+    return TopExp_Explorer(loft.shape(), TopAbs_FACE).More()
+
+
 def export_stl(loft, out_file: Path) -> None:
     """Write a TiGL loft to STL. The file is still ASCII afterwards."""
     from tigl3.exports import TriangulatedExportOptions, create_exporter
@@ -207,6 +217,11 @@ def main() -> None:
         except Exception as exc:  # noqa: BLE001
             print(f"  SKIPPED (geometry) {uid}: {exc}")
             failed.append((uid, f"geometry: {exc}"))
+            continue
+        if not has_faces(loft):
+            # Systems whose elements have an empty <geometry/> take part in the
+            # system architecture only; there is nothing to export.
+            print(f"  NO GEOMETRY {uid}")
             continue
 
         filename = f"{uid}.stl"
