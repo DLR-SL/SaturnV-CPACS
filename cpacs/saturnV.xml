@@ -8134,7 +8134,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-5.40</x>
-                                                        <y>8.55</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8161,7 +8161,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-10.90</x>
-                                                        <y>17.91</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8188,7 +8188,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-16.40</x>
-                                                        <y>35.83</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8215,7 +8215,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-21.80</x>
-                                                        <y>50.42</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8268,7 +8268,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-21.80</x>
-                                                        <y>50.42</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8295,7 +8295,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-16.40</x>
-                                                        <y>35.83</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8322,7 +8322,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-10.90</x>
-                                                        <y>17.91</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8349,7 +8349,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-5.40</x>
-                                                        <y>8.55</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8455,9 +8455,9 @@
                                                 <name>Goxline Elb3 Sec2</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.40</x>
-                                                        <y>90.00</y>
-                                                        <z>71.17</z>
+                                                        <x>-18.43</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8483,7 +8483,7 @@
                                                 <transformation>
                                                     <rotation>
                                                         <x>-45.00</x>
-                                                        <y>92.98</y>
+                                                        <y>0.00</y>
                                                         <z>90.00</z>
                                                     </rotation>
                                                     <translation>
@@ -8509,9 +8509,9 @@
                                                 <name>Goxline Elb3 Sec4</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>-1.15</x>
-                                                        <y>90.00</y>
-                                                        <z>19.58</z>
+                                                        <x>-71.57</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8536,9 +8536,9 @@
                                                 <name>Goxline Elb3 Sec5</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.00</x>
-                                                        <y>90.00</y>
-                                                        <z>0.00</z>
+                                                        <x>-90.00</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8589,9 +8589,9 @@
                                                 <name>Goxline Elb4 Sec1</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.00</x>
-                                                        <y>90.00</y>
-                                                        <z>0.00</z>
+                                                        <x>90.00</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8616,9 +8616,9 @@
                                                 <name>Goxline Elb4 Sec2</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>4.28</x>
-                                                        <y>90.00</y>
-                                                        <z>-22.72</z>
+                                                        <x>71.56</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8643,9 +8643,9 @@
                                                 <name>Goxline Elb4 Sec3</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>22.89</x>
-                                                        <y>90.00</y>
-                                                        <z>-67.89</z>
+                                                        <x>45.00</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8670,9 +8670,9 @@
                                                 <name>Goxline Elb4 Sec4</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>15.68</x>
-                                                        <y>90.00</y>
-                                                        <z>-87.25</z>
+                                                        <x>18.43</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8835,9 +8835,9 @@
                                                 <name>Coldheline2 Elb1 Sec2</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.40</x>
-                                                        <y>90.00</y>
-                                                        <z>71.17</z>
+                                                        <x>-18.43</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8862,9 +8862,9 @@
                                                 <name>Coldheline2 Elb1 Sec3</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>-44.99</x>
-                                                        <y>89.99</y>
-                                                        <z>89.99</z>
+                                                        <x>-45.00</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8889,9 +8889,9 @@
                                                 <name>Coldheline2 Elb1 Sec4</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>-1.15</x>
-                                                        <y>90.00</y>
-                                                        <z>19.58</z>
+                                                        <x>-71.57</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8916,9 +8916,9 @@
                                                 <name>Coldheline2 Elb1 Sec5</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.00</x>
-                                                        <y>90.00</y>
-                                                        <z>0.00</z>
+                                                        <x>-90.00</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8969,9 +8969,9 @@
                                                 <name>Coldheline2 Elb2 Sec1</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.00</x>
-                                                        <y>90.00</y>
-                                                        <z>0.00</z>
+                                                        <x>90.00</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -8996,9 +8996,9 @@
                                                 <name>Coldheline2 Elb2 Sec2</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>4.28</x>
-                                                        <y>90.00</y>
-                                                        <z>-22.72</z>
+                                                        <x>71.56</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9023,9 +9023,9 @@
                                                 <name>Coldheline2 Elb2 Sec3</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>19.43</x>
-                                                        <y>90.00</y>
-                                                        <z>-64.43</z>
+                                                        <x>45.00</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9050,9 +9050,9 @@
                                                 <name>Coldheline2 Elb2 Sec4</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>15.68</x>
-                                                        <y>90.00</y>
-                                                        <z>-87.25</z>
+                                                        <x>18.43</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9595,9 +9595,9 @@
                                                 <name>Coldheline3 Elb1 Sec2</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.40</x>
-                                                        <y>90.00</y>
-                                                        <z>71.17</z>
+                                                        <x>-18.43</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9622,9 +9622,9 @@
                                                 <name>Coldheline3 Elb1 Sec3</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>-44.99</x>
-                                                        <y>89.99</y>
-                                                        <z>89.99</z>
+                                                        <x>-45.00</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9649,9 +9649,9 @@
                                                 <name>Coldheline3 Elb1 Sec4</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>-1.15</x>
-                                                        <y>90.00</y>
-                                                        <z>19.58</z>
+                                                        <x>-71.57</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9676,9 +9676,9 @@
                                                 <name>Coldheline3 Elb1 Sec5</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.00</x>
-                                                        <y>90.00</y>
-                                                        <z>0.00</z>
+                                                        <x>-90.00</x>
+                                                        <y>0.00</y>
+                                                        <z>90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9729,9 +9729,9 @@
                                                 <name>Coldheline3 Elb2 Sec1</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>0.00</x>
-                                                        <y>90.00</y>
-                                                        <z>0.00</z>
+                                                        <x>90.00</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9756,9 +9756,9 @@
                                                 <name>Coldheline3 Elb2 Sec2</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>4.28</x>
-                                                        <y>90.00</y>
-                                                        <z>-22.72</z>
+                                                        <x>71.56</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9783,9 +9783,9 @@
                                                 <name>Coldheline3 Elb2 Sec3</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>19.43</x>
-                                                        <y>90.00</y>
-                                                        <z>-64.43</z>
+                                                        <x>45.00</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
@@ -9810,9 +9810,9 @@
                                                 <name>Coldheline3 Elb2 Sec4</name>
                                                 <transformation>
                                                     <rotation>
-                                                        <x>15.68</x>
-                                                        <y>90.00</y>
-                                                        <z>-87.25</z>
+                                                        <x>18.43</x>
+                                                        <y>0.00</y>
+                                                        <z>-90.00</z>
                                                     </rotation>
                                                     <translation>
                                                         <x>0.0000</x>
