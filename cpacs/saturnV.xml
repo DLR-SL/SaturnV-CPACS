@@ -62,6 +62,10 @@
             Fig. 13: foldable couch, left, center and right couches.
         [12] NASA: Apollo 11 Lunar Landing Mission, Press Kit. Release No. 69-83K,
             6 July 1969. Lunar module pilot couch beside the right sidewall.
+        [13] Apollo Operations Handbook, Block II Spacecraft, Volume 1: Spacecraft
+            Description. SM2A-03-BLOCK II-(1), basic date 15 April 1969.
+            Section 1.3.2.5 Crew Couches, Figs. 1-13 to 1-15: couches left,
+            center and right, by crew position CDR, CMP and LMP.
          ===================================================================== -->
     <header>
         <name>Saturn V</name>
@@ -2243,23 +2247,23 @@
                         <decks>
                             <deck uID="cm_crewDeck">
                                 <name>Command Module Crew Deck</name>
-                                <description>Crew compartment of the command module with the three crew couches [11]. deckType passenger is a stopgap: CPACS offers no deck type for a crew compartment. The transformation is empty because no deck origin is documented.</description>
+                                <description>Crew compartment of the command module with the three crew couches [11, 13]. deckType passenger is a stopgap: CPACS offers no deck type for a crew compartment. The transformation is empty because no deck origin is documented.</description>
                                 <transformation />
                                 <deckType>passenger</deckType>
                                 <seatModules>
                                     <seatModule uID="cm_couchLeft">
-                                        <name>Left Crew Couch</name>
-                                        <description>Left outboard couch [11].</description>
+                                        <name>Commander Couch (Left)</name>
+                                        <description>Left couch, crew position of the commander (CDR) [13].</description>
                                         <deckElementUID>apolloCrewCouch</deckElementUID>
                                     </seatModule>
                                     <seatModule uID="cm_couchCenter">
-                                        <name>Center Crew Couch</name>
-                                        <description>Center couch, foldable under the left couch [11].</description>
+                                        <name>Command Module Pilot Couch (Center)</name>
+                                        <description>Center couch, crew position of the command module pilot (CMP); foldable under the left couch [11, 13].</description>
                                         <deckElementUID>apolloCrewCouch</deckElementUID>
                                     </seatModule>
                                     <seatModule uID="cm_couchRight">
-                                        <name>Right Crew Couch</name>
-                                        <description>Right outboard couch, beside the right sidewall; couch of the lunar module pilot [11, 12].</description>
+                                        <name>Lunar Module Pilot Couch (Right)</name>
+                                        <description>Right couch beside the right sidewall, crew position of the lunar module pilot (LMP) [12, 13].</description>
                                         <deckElementUID>apolloCrewCouch</deckElementUID>
                                     </seatModule>
                                 </seatModules>
@@ -6602,7 +6606,7 @@
             <seatElements>
                 <seatElement uID="apolloCrewCouch">
                     <name>Apollo Crew Couch</name>
-                    <description>Foldable crew couch of the Apollo command module with restraint harness and load-attenuation struts [11]. No geometry: the sources give neither dimensions nor positions of the couches.</description>
+                    <description>Foldable crew couch of the Apollo command module: headrest, backpan, seatpan, legpan and footpan, with restraint harness and load-attenuation struts [11, 13]. No geometry: the sources give neither dimensions nor positions of the couches.</description>
                     <geometry />
                     <numberOfSeats>1</numberOfSeats>
                 </seatElement>
