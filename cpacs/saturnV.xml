@@ -52,6 +52,10 @@
             The Saturn V S-II Stage. Aircraft Engine Historical Society,
             rev. 2024.
             https://www.enginehistory.org/Rockets/RPE08.20/RPE08.20.shtml
+        [10] Saturn V Stage I (S-IC) Overview. Presentation slides, Apollo Mission
+            Familiarization for Constellation Personnel; no author or date given
+            (PDF of 2009). Slides 27-31: fuel pressurization system (cold and hot
+            helium manifolds, helium distributor).
          ===================================================================== -->
     <header>
         <name>Saturn V</name>
@@ -5389,6 +5393,37 @@
                                 </component>
                             </components>
                         </genericSystem>
+                        <genericSystem uID="s-ic_pressurization">
+                            <name>S-IC Pressurization System</name>
+                            <description>Pressurization components of the S-IC outside the LOX tank: helium and GOX manifolds at the engines, hot helium line and fuel tank distributor [5, 10]. Defined without geometry, since the sources give neither shape nor position.</description>
+                            <components>
+                                <component uID="s-ic_coldHeManifold">
+                                    <name>Cold Helium Manifold</name>
+                                    <description>Cold helium manifold feeding the engine heat exchangers [10].</description>
+                                    <systemElementUID>coldHeliumManifold</systemElementUID>
+                                </component>
+                                <component uID="s-ic_hotHeManifold">
+                                    <name>Hot Helium Manifold</name>
+                                    <description>Hot helium manifold collecting the heated helium [10].</description>
+                                    <systemElementUID>hotHeliumManifold</systemElementUID>
+                                </component>
+                                <component uID="s-ic_hotHeLine">
+                                    <name>Hot Helium Line</name>
+                                    <description>Hot helium line to the fuel tank distributor [5, 10].</description>
+                                    <systemElementUID>hotHeliumLine</systemElementUID>
+                                </component>
+                                <component uID="s-ic_heDistributor">
+                                    <name>Fuel Tank Helium Distributor</name>
+                                    <description>Helium distributor in the S-IC fuel tank [5, 10].</description>
+                                    <systemElementUID>fuelTankHeliumDistributor</systemElementUID>
+                                </component>
+                                <component uID="s-ic_goxManifold">
+                                    <name>GOX Manifold</name>
+                                    <description>GOX manifold collecting the GOX from the engine heat exchangers [5].</description>
+                                    <systemElementUID>goxManifold</systemElementUID>
+                                </component>
+                            </components>
+                        </genericSystem>
                         <genericSystem uID="s-ic_ordnance">
                             <name>S-IC Ordnance System</name>
                             <description>Solid-propellant retrorockets of the S-IC stage, two in each engine fairing.</description>
@@ -6103,111 +6138,155 @@
                                     <componentUID>s-ic_coldHeLine3</componentUID>
                                 </target>
                             </connection>
-                            <connection uID="s-ic_conn_heLine3_f1_1">
-                                <name>Cold Helium Line 3 to F-1 Engine 1</name>
-                                <description>Cold helium to the heat exchanger of F-1 engine 1 [5]. The cold helium manifold is not modeled.</description>
+                            <connection uID="s-ic_conn_heLine3">
+                                <name>Cold Helium Line 3 to Cold Helium Manifold</name>
+                                <description>Cold helium from cold helium line 3 into the cold helium manifold [10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>s-ic_coldHeLine3</componentUID>
+                                </source>
+                                <target>
+                                    <componentUID>s-ic_coldHeManifold</componentUID>
+                                </target>
+                            </connection>
+                            <connection uID="s-ic_conn_coldHeManifold_f1_1">
+                                <name>Cold Helium Manifold to F-1 Engine 1</name>
+                                <description>Cold helium from the manifold to the heat exchanger of F-1 engine 1 [5, 10].</description>
+                                <connectionType>fluid</connectionType>
+                                <source>
+                                    <componentUID>s-ic_coldHeManifold</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>f1_1</componentUID>
                                 </target>
                             </connection>
-                            <connection uID="s-ic_conn_heLine3_f1_2">
-                                <name>Cold Helium Line 3 to F-1 Engine 2</name>
-                                <description>Cold helium to the heat exchanger of F-1 engine 2 [5]. The cold helium manifold is not modeled.</description>
+                            <connection uID="s-ic_conn_coldHeManifold_f1_2">
+                                <name>Cold Helium Manifold to F-1 Engine 2</name>
+                                <description>Cold helium from the manifold to the heat exchanger of F-1 engine 2 [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
-                                    <componentUID>s-ic_coldHeLine3</componentUID>
+                                    <componentUID>s-ic_coldHeManifold</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>f1_2</componentUID>
                                 </target>
                             </connection>
-                            <connection uID="s-ic_conn_heLine3_f1_3">
-                                <name>Cold Helium Line 3 to F-1 Engine 3</name>
-                                <description>Cold helium to the heat exchanger of F-1 engine 3 [5]. The cold helium manifold is not modeled.</description>
+                            <connection uID="s-ic_conn_coldHeManifold_f1_3">
+                                <name>Cold Helium Manifold to F-1 Engine 3</name>
+                                <description>Cold helium from the manifold to the heat exchanger of F-1 engine 3 [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
-                                    <componentUID>s-ic_coldHeLine3</componentUID>
+                                    <componentUID>s-ic_coldHeManifold</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>f1_3</componentUID>
                                 </target>
                             </connection>
-                            <connection uID="s-ic_conn_heLine3_f1_4">
-                                <name>Cold Helium Line 3 to F-1 Engine 4</name>
-                                <description>Cold helium to the heat exchanger of F-1 engine 4 [5]. The cold helium manifold is not modeled.</description>
+                            <connection uID="s-ic_conn_coldHeManifold_f1_4">
+                                <name>Cold Helium Manifold to F-1 Engine 4</name>
+                                <description>Cold helium from the manifold to the heat exchanger of F-1 engine 4 [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
-                                    <componentUID>s-ic_coldHeLine3</componentUID>
+                                    <componentUID>s-ic_coldHeManifold</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>f1_4</componentUID>
                                 </target>
                             </connection>
-                            <connection uID="s-ic_conn_heLine3_f1_5">
-                                <name>Cold Helium Line 3 to F-1 Engine 5</name>
-                                <description>Cold helium to the heat exchanger of F-1 engine 5 [5]. The cold helium manifold is not modeled.</description>
+                            <connection uID="s-ic_conn_coldHeManifold_f1_5">
+                                <name>Cold Helium Manifold to F-1 Engine 5</name>
+                                <description>Cold helium from the manifold to the heat exchanger of F-1 engine 5 [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
-                                    <componentUID>s-ic_coldHeLine3</componentUID>
+                                    <componentUID>s-ic_coldHeManifold</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>f1_5</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_hotHe_f1_1">
-                                <name>F-1 Engine 1 to RP-1 Tank</name>
-                                <description>Helium heated in the heat exchanger of F-1 engine 1 to the fuel tank [5]. Hot helium manifold, duct and distributor are not modeled.</description>
+                                <name>F-1 Engine 1 to Hot Helium Manifold</name>
+                                <description>Helium heated in the heat exchanger of F-1 engine 1 into the hot helium manifold [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_1</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_rp1</componentUID>
+                                    <componentUID>s-ic_hotHeManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_hotHe_f1_2">
-                                <name>F-1 Engine 2 to RP-1 Tank</name>
-                                <description>Helium heated in the heat exchanger of F-1 engine 2 to the fuel tank [5]. Hot helium manifold, duct and distributor are not modeled.</description>
+                                <name>F-1 Engine 2 to Hot Helium Manifold</name>
+                                <description>Helium heated in the heat exchanger of F-1 engine 2 into the hot helium manifold [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_2</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_rp1</componentUID>
+                                    <componentUID>s-ic_hotHeManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_hotHe_f1_3">
-                                <name>F-1 Engine 3 to RP-1 Tank</name>
-                                <description>Helium heated in the heat exchanger of F-1 engine 3 to the fuel tank [5]. Hot helium manifold, duct and distributor are not modeled.</description>
+                                <name>F-1 Engine 3 to Hot Helium Manifold</name>
+                                <description>Helium heated in the heat exchanger of F-1 engine 3 into the hot helium manifold [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_3</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_rp1</componentUID>
+                                    <componentUID>s-ic_hotHeManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_hotHe_f1_4">
-                                <name>F-1 Engine 4 to RP-1 Tank</name>
-                                <description>Helium heated in the heat exchanger of F-1 engine 4 to the fuel tank [5]. Hot helium manifold, duct and distributor are not modeled.</description>
+                                <name>F-1 Engine 4 to Hot Helium Manifold</name>
+                                <description>Helium heated in the heat exchanger of F-1 engine 4 into the hot helium manifold [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_4</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_rp1</componentUID>
+                                    <componentUID>s-ic_hotHeManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_hotHe_f1_5">
-                                <name>F-1 Engine 5 to RP-1 Tank</name>
-                                <description>Helium heated in the heat exchanger of F-1 engine 5 to the fuel tank [5]. Hot helium manifold, duct and distributor are not modeled.</description>
+                                <name>F-1 Engine 5 to Hot Helium Manifold</name>
+                                <description>Helium heated in the heat exchanger of F-1 engine 5 into the hot helium manifold [5, 10].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_5</componentUID>
+                                </source>
+                                <target>
+                                    <componentUID>s-ic_hotHeManifold</componentUID>
+                                </target>
+                            </connection>
+                            <connection uID="s-ic_conn_hotHeManifold">
+                                <name>Hot Helium Manifold to Hot Helium Line</name>
+                                <description>Heated helium from the manifold into the hot helium line [10].</description>
+                                <connectionType>fluid</connectionType>
+                                <source>
+                                    <componentUID>s-ic_hotHeManifold</componentUID>
+                                </source>
+                                <target>
+                                    <componentUID>s-ic_hotHeLine</componentUID>
+                                </target>
+                            </connection>
+                            <connection uID="s-ic_conn_hotHeLine">
+                                <name>Hot Helium Line to Fuel Tank Helium Distributor</name>
+                                <description>Heated helium from the hot helium line into the fuel tank distributor [5, 10].</description>
+                                <connectionType>fluid</connectionType>
+                                <source>
+                                    <componentUID>s-ic_hotHeLine</componentUID>
+                                </source>
+                                <target>
+                                    <componentUID>s-ic_heDistributor</componentUID>
+                                </target>
+                            </connection>
+                            <connection uID="s-ic_conn_heDistributor">
+                                <name>Fuel Tank Helium Distributor to RP-1 Tank</name>
+                                <description>Helium from the distributor into the fuel tank ullage [5].</description>
+                                <connectionType>fluid</connectionType>
+                                <source>
+                                    <componentUID>s-ic_heDistributor</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>s-ic_rp1</componentUID>
@@ -6385,55 +6464,66 @@
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_gox_f1_1">
-                                <name>F-1 Engine 1 to GOX Flow Control Valve</name>
-                                <description>GOX from the heat exchanger of F-1 engine 1 to the GOX flow control valve [5, Fig. 4-13]. The GOX manifold is not modeled.</description>
+                                <name>F-1 Engine 1 to GOX Manifold</name>
+                                <description>GOX from the heat exchanger of F-1 engine 1 into the GOX manifold [5, Fig. 4-13].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_1</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_goxFlowControlValve</componentUID>
+                                    <componentUID>s-ic_goxManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_gox_f1_2">
-                                <name>F-1 Engine 2 to GOX Flow Control Valve</name>
-                                <description>GOX from the heat exchanger of F-1 engine 2 to the GOX flow control valve [5, Fig. 4-13]. The GOX manifold is not modeled.</description>
+                                <name>F-1 Engine 2 to GOX Manifold</name>
+                                <description>GOX from the heat exchanger of F-1 engine 2 into the GOX manifold [5, Fig. 4-13].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_2</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_goxFlowControlValve</componentUID>
+                                    <componentUID>s-ic_goxManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_gox_f1_3">
-                                <name>F-1 Engine 3 to GOX Flow Control Valve</name>
-                                <description>GOX from the heat exchanger of F-1 engine 3 to the GOX flow control valve [5, Fig. 4-13]. The GOX manifold is not modeled.</description>
+                                <name>F-1 Engine 3 to GOX Manifold</name>
+                                <description>GOX from the heat exchanger of F-1 engine 3 into the GOX manifold [5, Fig. 4-13].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_3</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_goxFlowControlValve</componentUID>
+                                    <componentUID>s-ic_goxManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_gox_f1_4">
-                                <name>F-1 Engine 4 to GOX Flow Control Valve</name>
-                                <description>GOX from the heat exchanger of F-1 engine 4 to the GOX flow control valve [5, Fig. 4-13]. The GOX manifold is not modeled.</description>
+                                <name>F-1 Engine 4 to GOX Manifold</name>
+                                <description>GOX from the heat exchanger of F-1 engine 4 into the GOX manifold [5, Fig. 4-13].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_4</componentUID>
                                 </source>
                                 <target>
-                                    <componentUID>s-ic_goxFlowControlValve</componentUID>
+                                    <componentUID>s-ic_goxManifold</componentUID>
                                 </target>
                             </connection>
                             <connection uID="s-ic_conn_gox_f1_5">
-                                <name>F-1 Engine 5 to GOX Flow Control Valve</name>
-                                <description>GOX from the heat exchanger of F-1 engine 5 to the GOX flow control valve [5, Fig. 4-13]. The GOX manifold is not modeled.</description>
+                                <name>F-1 Engine 5 to GOX Manifold</name>
+                                <description>GOX from the heat exchanger of F-1 engine 5 into the GOX manifold [5, Fig. 4-13].</description>
                                 <connectionType>fluid</connectionType>
                                 <source>
                                     <componentUID>f1_5</componentUID>
+                                </source>
+                                <target>
+                                    <componentUID>s-ic_goxManifold</componentUID>
+                                </target>
+                            </connection>
+                            <connection uID="s-ic_conn_goxManifold">
+                                <name>GOX Manifold to GOX Flow Control Valve</name>
+                                <description>GOX from the manifold to the GOX flow control valve [5, Fig. 4-13].</description>
+                                <connectionType>fluid</connectionType>
+                                <source>
+                                    <componentUID>s-ic_goxManifold</componentUID>
                                 </source>
                                 <target>
                                     <componentUID>s-ic_goxFlowControlValve</componentUID>
@@ -7740,6 +7830,11 @@
                                     </cylinder>
                                 </cylinders>
                             </geometry>
+                        </genericDistributionElement>
+                        <genericDistributionElement uID="fuelTankHeliumDistributor">
+                            <name>Fuel Tank Helium Distributor</name>
+                            <description>Distributor that releases the pressurizing helium into the fuel tank [5, 10]. No geometry: the sources give neither shape nor position.</description>
+                            <geometry />
                         </genericDistributionElement>
                     </genericDistributionElements>
                     <pipes>
@@ -10263,7 +10358,31 @@
                                 </multiSegmentShapes>
                             </geometry>
                         </pipe>
+                        <pipe uID="hotHeliumLine">
+                            <name>Hot Helium Line</name>
+                            <description>Line carrying the heated helium from the hot helium manifold to the fuel tank distributor [5, 10]. No geometry: the sources give neither shape nor position.</description>
+                            <geometry />
+                        </pipe>
                     </pipes>
+                    <splitters>
+                        <splitter uID="coldHeliumManifold">
+                            <name>Cold Helium Manifold</name>
+                            <description>Splits the cold helium flow to the heat exchangers of the five F-1 engines [10]. No geometry: the sources give neither shape nor position.</description>
+                            <geometry />
+                        </splitter>
+                    </splitters>
+                    <joiners>
+                        <joiner uID="hotHeliumManifold">
+                            <name>Hot Helium Manifold</name>
+                            <description>Collects the heated helium from the engine heat exchangers [10]. No geometry: the sources give neither shape nor position.</description>
+                            <geometry />
+                        </joiner>
+                        <joiner uID="goxManifold">
+                            <name>GOX Manifold</name>
+                            <description>Collects the GOX from the heat exchangers of the five F-1 engines [5, Fig. 4-13]. No geometry: the sources give neither shape nor position.</description>
+                            <geometry />
+                        </joiner>
+                    </joiners>
                 </distributionElements>
                 <controlElements>
                     <valves>
