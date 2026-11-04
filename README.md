@@ -108,7 +108,7 @@ citations, sits in the header comment of
 [`cpacs/saturnV.xml`](cpacs/saturnV.xml) and includes Boeing assembly layout
 drawings, MSFC flight manuals (SA-503 / SA-507), the North American Aviation
 report on the S-II common bulkhead, and NASA technical reports — many of them
-digitised and made accessible by [heroicrelics.org](http://heroicrelics.org/).
+digitized and made accessible by [heroicrelics.org](http://heroicrelics.org/).
 
 ## Status
 
@@ -120,7 +120,7 @@ fins.
 
 Known gaps: S-II and S-IVB engines, the service module engine, the command
 module cabin element, and several launch escape system details (rod structure
-and torus geometry) are not yet modelled.
+and torus geometry) are not yet modeled.
 
 Issues and pull requests are welcome — particularly corrections backed by
 primary sources.
