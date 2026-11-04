@@ -367,7 +367,7 @@ SHOTS: list[Shot] = [
     Shot(
         name="systems_side_bare",
         include=("s-ic_fuelFeed", "s-ic_loxFeed", "s-ic_loxPressurization",
-                 "s-ic_ordenance", "s-ic_flightControl", "engines"),
+                 "s-ic_ordnance", "s-ic_flightControl", "engines"),
         direction=(0.0, -1.0, 0.0),
         ortho=True,
         orientation="vertical",
