@@ -56,6 +56,12 @@
             Familiarization for Constellation Personnel; no author or date given
             (PDF of 2009). Slides 27-31: fuel pressurization system (cold and hot
             helium manifolds, helium distributor).
+        [11] Drexel, R.E.; Hunter, H.N.: Apollo Experience Report: Command Module
+            Crew-Couch/Restraint and Load-Attenuation Systems. NASA TN D-7440,
+            Lyndon B. Johnson Space Center, September 1973. NTRS 19730023036.
+            Fig. 13: foldable couch, left, center and right couches.
+        [12] NASA: Apollo 11 Lunar Landing Mission, Press Kit. Release No. 69-83K,
+            6 July 1969. Lunar module pilot couch beside the right sidewall.
          ===================================================================== -->
     <header>
         <name>Saturn V</name>
@@ -2234,6 +2240,31 @@
                                 <toElementUID>cm_sec17_el1</toElementUID>
                             </segment>
                         </segments>
+                        <decks>
+                            <deck uID="cm_crewDeck">
+                                <name>Command Module Crew Deck</name>
+                                <description>Crew compartment of the command module with the three crew couches [11]. deckType passenger is a stopgap: CPACS offers no deck type for a crew compartment. The transformation is empty because no deck origin is documented.</description>
+                                <transformation />
+                                <deckType>passenger</deckType>
+                                <seatModules>
+                                    <seatModule uID="cm_couchLeft">
+                                        <name>Left Crew Couch</name>
+                                        <description>Left outboard couch [11].</description>
+                                        <deckElementUID>apolloCrewCouch</deckElementUID>
+                                    </seatModule>
+                                    <seatModule uID="cm_couchCenter">
+                                        <name>Center Crew Couch</name>
+                                        <description>Center couch, foldable under the left couch [11].</description>
+                                        <deckElementUID>apolloCrewCouch</deckElementUID>
+                                    </seatModule>
+                                    <seatModule uID="cm_couchRight">
+                                        <name>Right Crew Couch</name>
+                                        <description>Right outboard couch, beside the right sidewall; couch of the lunar module pilot [11, 12].</description>
+                                        <deckElementUID>apolloCrewCouch</deckElementUID>
+                                    </seatModule>
+                                </seatModules>
+                            </deck>
+                        </decks>
                     </fuselage>
                 </fuselages>
                 <enginePylons>
@@ -6567,6 +6598,16 @@
                 </systemArchitectures>
             </model>
         </aircraft>
+        <deckElements>
+            <seatElements>
+                <seatElement uID="apolloCrewCouch">
+                    <name>Apollo Crew Couch</name>
+                    <description>Foldable crew couch of the Apollo command module with restraint harness and load-attenuation struts [11]. No geometry: the sources give neither dimensions nor positions of the couches.</description>
+                    <geometry />
+                    <numberOfSeats>1</numberOfSeats>
+                </seatElement>
+            </seatElements>
+        </deckElements>
         <systemElements>
             <genericElements>
                 <genericElement uID="measurementPlane">
