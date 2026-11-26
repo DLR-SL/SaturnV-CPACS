@@ -56,6 +56,21 @@
             Familiarization for Constellation Personnel; no author or date given
             (PDF of 2009). Slides 27-31: fuel pressurization system (cold and hot
             helium manifolds, helium distributor).
+        [11] Rocketdyne. Technical Manual: Engine Data, F-1 Rocket Engine.
+            R-3896-1, 31 Mar 1967 (Change No. 2, 10 Aug 1967). Fig. 2-22: Engine
+            Envelope Dimensions; Section III: throat area 961.4 sq in, expansion
+            area ratio 16:1; Section I: 3:1 expansion ratio plane approximately
+            30 in below the throat centerline plane, thrust chamber regeneratively
+            cooled to the 10:1 plane, nozzle extension to the 16:1 plane.
+            https://archive.org/details/r-3896-1-technical-manual-engine-data-f-1-rocket-engine-31-mar-1967
+        [12] Rocketdyne. F-1 General Configuration. Fold-out drawing from F-1
+            Design Information, R-2823-1, 23 Aug 1961. Scan by heroicrelics.org:
+            http://heroicrelics.org/info/f-1/f-1-gen-cfg.html
+            Gimbal centerline to throat centerline 57.90 in.
+        [13] Oefelein, J.C.; Yang, V.: Comprehensive Review of Liquid-Propellant
+            Combustion Instabilities in F-1 Engines. Journal of Propulsion and
+            Power 9(5), 1993, pp. 657-677. DOI 10.2514/3.23674.
+            Installed wall-to-wall injector face diameter 100 cm.
          ===================================================================== -->
     <header>
         <name>Saturn V</name>
@@ -4632,13 +4647,14 @@
                                     <name>F-1 Engine 1</name>
                                     <description>Outboard F-1 engine of the S-IC engine cluster.
                                         Positioned at radius 182 in according to [1].
+                                        The gimbal center lies on the gimbal plane, vehicle station 100 in [1], i.e. 12 in aft of the thrust structure origin.
                                     </description>
                                     <parentUID>s-ic_thrustStructure</parentUID>
                                     <transformation>
                                         <translation>
                                             <x>-4.6228</x>
                                             <y>0</y>
-                                            <z>-5.73</z>
+                                            <z>-0.3048</z>
                                         </translation>
                                     </transformation>
                                     <systemElementUID>f1_engine</systemElementUID>
@@ -4651,7 +4667,7 @@
                                         <translation>
                                             <x>0</x>
                                             <y>-4.6228</y>
-                                            <z>-5.73</z>
+                                            <z>-0.3048</z>
                                         </translation>
                                     </transformation>
                                     <systemElementUID>f1_engine</systemElementUID>
@@ -4664,7 +4680,7 @@
                                         <translation>
                                             <x>4.6228</x>
                                             <y>0</y>
-                                            <z>-5.73</z>
+                                            <z>-0.3048</z>
                                         </translation>
                                     </transformation>
                                     <systemElementUID>f1_engine</systemElementUID>
@@ -4677,7 +4693,7 @@
                                         <translation>
                                             <x>0.0</x>
                                             <y>4.6228</y>
-                                            <z>-5.73</z>
+                                            <z>-0.3048</z>
                                         </translation>
                                     </transformation>
                                     <systemElementUID>f1_engine</systemElementUID>
@@ -4690,7 +4706,7 @@
                                         <translation>
                                             <x>0</x>
                                             <y>0</y>
-                                            <z>-5.73</z>
+                                            <z>-0.3048</z>
                                         </translation>
                                     </transformation>
                                     <systemElementUID>f1_engine</systemElementUID>
@@ -7698,7 +7714,11 @@
                 </genericElement>
                 <genericElement uID="f1_engine">
                     <name>Rocketdyne F-1 Engine</name>
-                    <description>Simplified geometric representation of a single Rocketdyne F-1 engine used in the S-IC first-stage engine cluster.</description>
+                    <description>Simplified geometric representation of a single Rocketdyne F-1 engine used in the S-IC first-stage engine cluster.
+                        Local origin at the gimbal center, local +x pointing forward along the thrust chamber axis (after the rotation below).
+                        The nozzle is lofted through the gas-side contour at the throat and the 3:1, 10:1 and 16:1 expansion area ratio planes [11, 12];
+                        the actual bell contour between these planes, the wall thickness and the turbine exhaust manifold are not represented.
+                        The combustion chamber and powerhead are lumped into a cylinder of the injector face diameter, 100 cm [13], reaching from the throat to the gimbal center.</description>
                     <geometry>
                         <transformation>
                             <rotation>
@@ -7708,63 +7728,89 @@
                         <multiSegmentShapes>
                             <multiSegmentShape>
                                 <sections>
-                                    <section uID="f1_ls">
+                                    <section uID="f1_exit">
                                         <name>F-1 Nozzle Exit Section</name>
-                                        <description>Aft nozzle exit section of the F-1 engine.</description>
-                                        <transformation />
+                                        <description>Nozzle exit plane (16:1 expansion area ratio), 215.50 in aft of the gimbal center [11].</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-5.4737</x>
+                                            </translation>
+                                        </transformation>
                                         <elements>
-                                            <element uID="f1_ls_el1">
+                                            <element uID="f1_exit_el1">
                                                 <name>F-1 Nozzle Exit Profile</name>
-                                                <description>Circular profile defining the nozzle exit diameter.</description>
+                                                <description>Gas-side exit diameter 139.95 in, derived from the throat area and the 16:1 expansion area ratio [11]; the outer envelope diameter is 147.00 in [11].</description>
                                                 <profileUID>circularProfile</profileUID>
                                                 <transformation>
                                                     <scaling>
-                                                        <y>3.7</y>
-                                                        <z>3.7</z>
+                                                        <y>3.5547</y>
+                                                        <z>3.5547</z>
                                                     </scaling>
                                                 </transformation>
                                             </element>
                                         </elements>
                                     </section>
-                                    <section uID="f1_ms">
-                                        <name>F-1 Nozzle Mid Section</name>
-                                        <description>Intermediate section of the F-1 nozzle contour.</description>
+                                    <section uID="f1_ar10">
+                                        <name>F-1 Nozzle Extension Joint Section</name>
+                                        <description>Thrust chamber exit plane (10:1 expansion area ratio), where the nozzle extension is bolted to the thrust chamber exit end ring; 150.00 in aft of the gimbal center, at the aft end of the turbine exhaust manifold envelope [11].</description>
                                         <transformation>
                                             <translation>
-                                                <x>2.45</x>
+                                                <x>-3.8100</x>
                                             </translation>
                                         </transformation>
                                         <elements>
-                                            <element uID="f1_ms_el1">
-                                                <name>F-1 Nozzle Mid Profile</name>
-                                                <description>Circular profile defining the intermediate nozzle diameter.</description>
+                                            <element uID="f1_ar10_el1">
+                                                <name>F-1 Nozzle Extension Joint Profile</name>
+                                                <description>Gas-side diameter 110.64 in, derived from the throat area and the 10:1 expansion area ratio [11].</description>
                                                 <profileUID>circularProfile</profileUID>
                                                 <transformation>
                                                     <scaling>
-                                                        <y>2.26</y>
-                                                        <z>2.26</z>
+                                                        <y>2.8102</y>
+                                                        <z>2.8102</z>
                                                     </scaling>
                                                 </transformation>
                                             </element>
                                         </elements>
                                     </section>
-                                    <section uID="f1_us">
+                                    <section uID="f1_ar3">
+                                        <name>F-1 Nozzle 3:1 Section</name>
+                                        <description>3:1 expansion area ratio plane, approximately 30 in aft of the throat centerline plane [11].</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-2.2327</x>
+                                            </translation>
+                                        </transformation>
+                                        <elements>
+                                            <element uID="f1_ar3_el1">
+                                                <name>F-1 Nozzle 3:1 Profile</name>
+                                                <description>Gas-side diameter 60.60 in, derived from the throat area and the 3:1 expansion area ratio [11].</description>
+                                                <profileUID>circularProfile</profileUID>
+                                                <transformation>
+                                                    <scaling>
+                                                        <y>1.5392</y>
+                                                        <z>1.5392</z>
+                                                    </scaling>
+                                                </transformation>
+                                            </element>
+                                        </elements>
+                                    </section>
+                                    <section uID="f1_throat">
                                         <name>F-1 Nozzle Throat Section</name>
-                                        <description>Forward nozzle section near the chamber-side end of the engine nozzle.</description>
+                                        <description>Throat centerline plane, 57.90 in aft of the gimbal center [12].</description>
                                         <transformation>
                                             <translation>
-                                                <x>4.13</x>
+                                                <x>-1.4707</x>
                                             </translation>
                                         </transformation>
                                         <elements>
-                                            <element uID="f1_us_el1">
+                                            <element uID="f1_throat_el1">
                                                 <name>F-1 Nozzle Throat Profile</name>
-                                                <description>Circular profile defining the forward nozzle diameter.</description>
+                                                <description>Throat diameter 34.99 in, derived from the throat area of 961.4 sq in [11].</description>
                                                 <profileUID>circularProfile</profileUID>
                                                 <transformation>
                                                     <scaling>
-                                                        <y>0.86</y>
-                                                        <z>0.86</z>
+                                                        <y>0.8887</y>
+                                                        <z>0.8887</z>
                                                     </scaling>
                                                 </transformation>
                                             </element>
@@ -7772,17 +7818,23 @@
                                     </section>
                                 </sections>
                                 <segments>
-                                    <segment uID="nozzle_seg1">
-                                        <name>F-1 Nozzle Lower Segment</name>
-                                        <description>Loft segment from nozzle exit to intermediate nozzle section.</description>
-                                        <fromElementUID>f1_ls_el1</fromElementUID>
-                                        <toElementUID>f1_ms_el1</toElementUID>
+                                    <segment uID="f1_seg_ext">
+                                        <name>F-1 Nozzle Extension</name>
+                                        <description>Turbine exhaust gas cooled nozzle extension from the 10:1 to the 16:1 expansion area ratio plane [11].</description>
+                                        <fromElementUID>f1_exit_el1</fromElementUID>
+                                        <toElementUID>f1_ar10_el1</toElementUID>
                                     </segment>
-                                    <segment uID="nozzle_seg2">
-                                        <name>F-1 Nozzle Upper Segment</name>
-                                        <description>Loft segment from intermediate nozzle section to the forward nozzle section.</description>
-                                        <fromElementUID>f1_ms_el1</fromElementUID>
-                                        <toElementUID>f1_us_el1</toElementUID>
+                                    <segment uID="f1_seg_secondary">
+                                        <name>F-1 Thrust Chamber Aft Nozzle</name>
+                                        <description>Regeneratively cooled nozzle section from the 3:1 to the 10:1 expansion area ratio plane [11].</description>
+                                        <fromElementUID>f1_ar10_el1</fromElementUID>
+                                        <toElementUID>f1_ar3_el1</toElementUID>
+                                    </segment>
+                                    <segment uID="f1_seg_primary">
+                                        <name>F-1 Thrust Chamber Forward Nozzle</name>
+                                        <description>Regeneratively cooled nozzle section from the throat to the 3:1 expansion area ratio plane [11].</description>
+                                        <fromElementUID>f1_ar3_el1</fromElementUID>
+                                        <toElementUID>f1_throat_el1</toElementUID>
                                     </segment>
                                 </segments>
                             </multiSegmentShape>
@@ -7794,11 +7846,11 @@
                                         <y>90</y>
                                     </rotation>
                                     <translation>
-                                        <x>4.13</x>
+                                        <x>-1.4707</x>
                                     </translation>
                                 </transformation>
-                                <radius>0.43</radius>
-                                <height>1.3</height>
+                                <radius>0.5</radius>
+                                <height>1.4707</height>
                             </cylinder>
                         </cylinders>
                     </geometry>
