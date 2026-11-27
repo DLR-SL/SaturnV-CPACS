@@ -4838,6 +4838,26 @@
                                 </component>
                             </components>
                         </genericSystem>
+                        <genericSystem uID="s-ivb_engines">
+                            <name>S-IVB J-2 Engine</name>
+                            <description>Single gimbaled Rocketdyne J-2 engine of the S-IVB third stage, mounted on the stage centerline.</description>
+                            <components>
+                                <component uID="j2_s-ivb">
+                                    <name>J-2 Engine (S-IVB)</name>
+                                    <description>J-2 engine of the S-IVB third stage on the stage centerline. Gimbal center on the S-IVB gimbal plane, vehicle station 2643 [2], 103.5 in aft of the S-IVB aft skirt origin at station 2746.5;
+                                        consistent with the top of the J-2 engine at station 2645.85 [3], which lies 3.5 in above the gimbal center at the gimbal forward face [18].</description>
+                                    <parentUID>s-ivb_aftSkirtAssembly</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>0.0000</x>
+                                            <y>0.0000</y>
+                                            <z>-2.6289</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                            </components>
+                        </genericSystem>
                         <genericSystem uID="s-ic_fuelFeed">
                             <name>S-IC Fuel Feed System</name>
                             <description>RP-1 feed path of the S-IC first stage: ten suction lines, two per F-1 engine, each with a single elbow and a prevalve directly below the tank bulkhead. Geometry from [1]: the engine side inlets sit beside the oxidizer suction line inlet, their centers offset 23.08 in to either side of it (Section A-A); the elbow sits at station 187.7; the tank outlet fittings sit on the aft RP-1 bulkhead on a circle of radius 84.056 in (Section D-D), the outboard engine fittings offset about 12 deg and the center engine fittings about 34 deg to either side of the engine position line.</description>
@@ -7992,7 +8012,7 @@
                 </genericElement>
                 <genericElement uID="j2_engine">
                     <name>Rocketdyne J-2 Engine</name>
-                    <description>Simplified geometric representation of a single Rocketdyne J-2 engine.
+                    <description>Simplified geometric representation of a single Rocketdyne J-2 engine, used in the S-II engine cluster and the S-IVB stage.
                         Local origin at the gimbal center, local +x pointing forward along the thrust chamber axis (after the rotation below).
                         The nozzle is lofted through the gas-side contour at the throat [17, 19], the turbine exhaust inlet plane [18, 19], two sections measured on the general arrangement drawing [18] and the exit plane [17, 18];
                         wall thickness, stiffening bands, manifolds and turbopumps are not represented.
