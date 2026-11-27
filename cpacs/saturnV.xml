@@ -81,6 +81,25 @@
             Description. SM2A-03-BLOCK II-(1), basic date 15 April 1969.
             Section 1.3.2.5 Crew Couches, Figs. 1-13 to 1-15: couches left,
             center and right, by crew position CDR, CMP and LMP.
+        [17] Rocketdyne. Technical Manual: J-2 Rocket Engine, Engine Data.
+            R-3825-1, 18 May 1967 (Change No. 12, 18 Oct 1972). Para. 1-16:
+            thrust chamber body 107 in long, inside diameter 18.3 in at the
+            combustion chamber, 14.7 in at the throat and 77 in at the exit ring;
+            27.5:1 expansion nozzle; gimbal at the center of the injector dome.
+            https://archive.org/details/r-3825-1-j-2-rocket-engine-engine-data-18-may-1967-change-no.-12-18-oct-72
+        [18] Rocketdyne. Engine/Vehicle Interface Requirements: J-2 General
+            Arrangement (chart 330-657), reproduced in AEDC-TR-67-86, Altitude
+            Testing of the J-2 Rocket Engine in Propulsion Engine Test Cell (J-4),
+            Jul 1967, p. 46. Scan by heroicrelics.org:
+            http://heroicrelics.org/info/j-2/j-2-with-callouts.html
+            Gimbal center to thrust chamber exit plane 116 in; drawn to scale.
+        [19] McCutcheon, K.D. Rocket Propulsion Evolution, Part 8.22: J-2
+            Engine. Aircraft Engine Historical Society, rev. 3 Aug 2022, after
+            AEDC-TR-67-86: throat area 170.4 sq in, combustion chamber 18.6 in in
+            diameter and 8.0 in long from the injector mounting face to the throat
+            inlet, characteristic length 24.6 in; turbine exhaust enters the thrust
+            chamber at area ratio stations 10.45 to 11.40.
+            https://www.enginehistory.org/Rockets/RPE08.22/RPE08.22.shtml
          ===================================================================== -->
     <header>
         <name>Saturn V</name>
@@ -4748,6 +4767,97 @@
                                 </component>
                             </components>
                         </genericSystem>
+                        <genericSystem uID="s-ii_engines">
+                            <name>S-II J-2 Engine Cluster</name>
+                            <description>Five-engine Rocketdyne J-2 propulsion cluster at the aft end of the S-II second stage: four gimbaled outboard engines and a fixed center engine [5].</description>
+                            <components>
+                                <component uID="j2_s-ii_1">
+                                    <name>J-2 Engine 1 (S-II)</name>
+                                    <description>Outboard J-2 engine of the S-II engine cluster. The four outboard engines are equally spaced on a 17.5 ft diameter circle [5], radius 105 in; the sources give no azimuth, so they are placed on the vehicle axes like the S-IC outboard engines. The gimbal centers lie on the S-II gimbal plane, vehicle station 1664 [2, 3], 96 in aft of the S-II thrust structure origin at station 1760.</description>
+                                    <parentUID>s-ii_thrustStructure</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>-2.6670</x>
+                                            <y>0.0000</y>
+                                            <z>-2.4384</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                                <component uID="j2_s-ii_2">
+                                    <name>J-2 Engine 2 (S-II)</name>
+                                    <description>Outboard J-2 engine of the S-II engine cluster.</description>
+                                    <parentUID>s-ii_thrustStructure</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>0.0000</x>
+                                            <y>-2.6670</y>
+                                            <z>-2.4384</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                                <component uID="j2_s-ii_3">
+                                    <name>J-2 Engine 3 (S-II)</name>
+                                    <description>Outboard J-2 engine of the S-II engine cluster.</description>
+                                    <parentUID>s-ii_thrustStructure</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>2.6670</x>
+                                            <y>0.0000</y>
+                                            <z>-2.4384</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                                <component uID="j2_s-ii_4">
+                                    <name>J-2 Engine 4 (S-II)</name>
+                                    <description>Outboard J-2 engine of the S-II engine cluster.</description>
+                                    <parentUID>s-ii_thrustStructure</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>0.0000</x>
+                                            <y>2.6670</y>
+                                            <z>-2.4384</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                                <component uID="j2_s-ii_5">
+                                    <name>J-2 Engine 5 (S-II Center)</name>
+                                    <description>Fixed center J-2 engine of the S-II engine cluster, mounted on the stage centerline [5].</description>
+                                    <parentUID>s-ii_thrustStructure</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>0.0000</x>
+                                            <y>0.0000</y>
+                                            <z>-2.4384</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                            </components>
+                        </genericSystem>
+                        <genericSystem uID="s-ivb_engines">
+                            <name>S-IVB J-2 Engine</name>
+                            <description>Single gimbaled Rocketdyne J-2 engine of the S-IVB third stage, mounted on the stage centerline.</description>
+                            <components>
+                                <component uID="j2_s-ivb">
+                                    <name>J-2 Engine (S-IVB)</name>
+                                    <description>J-2 engine of the S-IVB third stage on the stage centerline. Gimbal center on the S-IVB gimbal plane, vehicle station 2643 [2], 103.5 in aft of the S-IVB aft skirt origin at station 2746.5;
+                                        consistent with the top of the J-2 engine at station 2645.85 [3], which lies 3.5 in above the gimbal center at the gimbal forward face [18].</description>
+                                    <parentUID>s-ivb_aftSkirtAssembly</parentUID>
+                                    <transformation>
+                                        <translation>
+                                            <x>0.0000</x>
+                                            <y>0.0000</y>
+                                            <z>-2.6289</z>
+                                        </translation>
+                                    </transformation>
+                                    <systemElementUID>j2_engine</systemElementUID>
+                                </component>
+                            </components>
+                        </genericSystem>
                         <genericSystem uID="s-ic_fuelFeed">
                             <name>S-IC Fuel Feed System</name>
                             <description>RP-1 feed path of the S-IC first stage: ten suction lines, two per F-1 engine, each with a single elbow and a prevalve directly below the tank bulkhead. Geometry from [1]: the engine side inlets sit beside the oxidizer suction line inlet, their centers offset 23.08 in to either side of it (Section A-A); the elbow sits at station 187.7; the tank outlet fittings sit on the aft RP-1 bulkhead on a circle of radius 84.056 in (Section D-D), the outboard engine fittings offset about 12 deg and the center engine fittings about 34 deg to either side of the engine position line.</description>
@@ -7896,6 +8006,177 @@
                                 </transformation>
                                 <radius>0.5</radius>
                                 <height>1.4707</height>
+                            </cylinder>
+                        </cylinders>
+                    </geometry>
+                </genericElement>
+                <genericElement uID="j2_engine">
+                    <name>Rocketdyne J-2 Engine</name>
+                    <description>Simplified geometric representation of a single Rocketdyne J-2 engine, used in the S-II engine cluster and the S-IVB stage.
+                        Local origin at the gimbal center, local +x pointing forward along the thrust chamber axis (after the rotation below).
+                        The nozzle is lofted through the gas-side contour at the throat [17, 19], the turbine exhaust inlet plane [18, 19], two sections measured on the general arrangement drawing [18] and the exit plane [17, 18];
+                        wall thickness, stiffening bands, manifolds and turbopumps are not represented.
+                        The combustion chamber and injector dome are lumped into a cylinder of the combustion chamber diameter, 18.3 in [17], reaching from the throat to the gimbal center.</description>
+                    <geometry>
+                        <transformation>
+                            <rotation>
+                                <y>-90</y>
+                            </rotation>
+                        </transformation>
+                        <multiSegmentShapes>
+                            <multiSegmentShape>
+                                <sections>
+                                    <section uID="j2_exit">
+                                        <name>J-2 Nozzle Exit Section</name>
+                                        <description>Thrust chamber exit plane, 116 in aft of the gimbal center [18].</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-2.9464</x>
+                                            </translation>
+                                        </transformation>
+                                        <elements>
+                                            <element uID="j2_exit_el1">
+                                                <name>J-2 Nozzle Exit Profile</name>
+                                                <description>Inside diameter 77 in at the exit ring [17].</description>
+                                                <profileUID>circularProfile</profileUID>
+                                                <transformation>
+                                                    <scaling>
+                                                        <y>1.9558</y>
+                                                        <z>1.9558</z>
+                                                    </scaling>
+                                                </transformation>
+                                            </element>
+                                        </elements>
+                                    </section>
+                                    <section uID="j2_z100">
+                                        <name>J-2 Nozzle Section 100 in</name>
+                                        <description>Intermediate nozzle section 100 in aft of the gimbal center.</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-2.5400</x>
+                                            </translation>
+                                        </transformation>
+                                        <elements>
+                                            <element uID="j2_z100_el1">
+                                                <name>J-2 Nozzle Profile 100 in</name>
+                                                <description>Diameter 73.3 in, measured on the to-scale general arrangement drawing [18] and scaled so that the exit diameter there equals the 77 in of [17].</description>
+                                                <profileUID>circularProfile</profileUID>
+                                                <transformation>
+                                                    <scaling>
+                                                        <y>1.8618</y>
+                                                        <z>1.8618</z>
+                                                    </scaling>
+                                                </transformation>
+                                            </element>
+                                        </elements>
+                                    </section>
+                                    <section uID="j2_z85">
+                                        <name>J-2 Nozzle Section 85 in</name>
+                                        <description>Intermediate nozzle section 85 in aft of the gimbal center.</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-2.1590</x>
+                                            </translation>
+                                        </transformation>
+                                        <elements>
+                                            <element uID="j2_z85_el1">
+                                                <name>J-2 Nozzle Profile 85 in</name>
+                                                <description>Diameter 64.7 in, measured on the to-scale general arrangement drawing [18] and scaled so that the exit diameter there equals the 77 in of [17].</description>
+                                                <profileUID>circularProfile</profileUID>
+                                                <transformation>
+                                                    <scaling>
+                                                        <y>1.6434</y>
+                                                        <z>1.6434</z>
+                                                    </scaling>
+                                                </transformation>
+                                            </element>
+                                        </elements>
+                                    </section>
+                                    <section uID="j2_ar11">
+                                        <name>J-2 Nozzle Turbine Exhaust Section</name>
+                                        <description>Plane where the turbine exhaust enters the thrust chamber, area ratio stations 10.45 to 11.40 [19]; 63.5 in aft of the gimbal center, at the aft edge of the turbine exhaust manifold measured on the general arrangement drawing [18].</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-1.6129</x>
+                                            </translation>
+                                        </transformation>
+                                        <elements>
+                                            <element uID="j2_ar11_el1">
+                                                <name>J-2 Nozzle Turbine Exhaust Profile</name>
+                                                <description>Diameter 48.6 in, derived from the throat diameter [17] and the mean area ratio 10.925 [19].</description>
+                                                <profileUID>circularProfile</profileUID>
+                                                <transformation>
+                                                    <scaling>
+                                                        <y>1.2341</y>
+                                                        <z>1.2341</z>
+                                                    </scaling>
+                                                </transformation>
+                                            </element>
+                                        </elements>
+                                    </section>
+                                    <section uID="j2_throat">
+                                        <name>J-2 Nozzle Throat Section</name>
+                                        <description>Throat plane, 26.2 in aft of the gimbal center: injector mounting face 9.0 in aft of the gimbal center (exit plane 116 in [18] less the 107 in thrust chamber body [17]), followed by the cylindrical combustion chamber of 8.0 in [19] and a convergent section of 9.2 in, the length for which a conical convergent from 18.6 in to the throat yields the characteristic length of 24.6 in [19].</description>
+                                        <transformation>
+                                            <translation>
+                                                <x>-0.6655</x>
+                                            </translation>
+                                        </transformation>
+                                        <elements>
+                                            <element uID="j2_throat_el1">
+                                                <name>J-2 Nozzle Throat Profile</name>
+                                                <description>Throat inside diameter 14.7 in [17].</description>
+                                                <profileUID>circularProfile</profileUID>
+                                                <transformation>
+                                                    <scaling>
+                                                        <y>0.3734</y>
+                                                        <z>0.3734</z>
+                                                    </scaling>
+                                                </transformation>
+                                            </element>
+                                        </elements>
+                                    </section>
+                                </sections>
+                                <segments>
+                                    <segment uID="j2_seg1">
+                                        <name>J-2 Nozzle Aft Segment</name>
+                                        <description>Loft segment of the regeneratively cooled J-2 nozzle.</description>
+                                        <fromElementUID>j2_exit_el1</fromElementUID>
+                                        <toElementUID>j2_z100_el1</toElementUID>
+                                    </segment>
+                                    <segment uID="j2_seg2">
+                                        <name>J-2 Nozzle Segment 2</name>
+                                        <description>Loft segment of the regeneratively cooled J-2 nozzle.</description>
+                                        <fromElementUID>j2_z100_el1</fromElementUID>
+                                        <toElementUID>j2_z85_el1</toElementUID>
+                                    </segment>
+                                    <segment uID="j2_seg3">
+                                        <name>J-2 Nozzle Segment 3</name>
+                                        <description>Loft segment of the regeneratively cooled J-2 nozzle.</description>
+                                        <fromElementUID>j2_z85_el1</fromElementUID>
+                                        <toElementUID>j2_ar11_el1</toElementUID>
+                                    </segment>
+                                    <segment uID="j2_seg4">
+                                        <name>J-2 Nozzle Forward Segment</name>
+                                        <description>Loft segment of the regeneratively cooled J-2 nozzle.</description>
+                                        <fromElementUID>j2_ar11_el1</fromElementUID>
+                                        <toElementUID>j2_throat_el1</toElementUID>
+                                    </segment>
+                                </segments>
+                            </multiSegmentShape>
+                        </multiSegmentShapes>
+                        <cylinders>
+                            <cylinder>
+                                <transformation>
+                                    <rotation>
+                                        <y>90</y>
+                                    </rotation>
+                                    <translation>
+                                        <x>-0.6655</x>
+                                    </translation>
+                                </transformation>
+                                <radius>0.2324</radius>
+                                <height>0.6655</height>
                             </cylinder>
                         </cylinders>
                     </geometry>
